@@ -26,6 +26,7 @@ describe('Callback review', function() {
 
     it('should invoke the callback with the first line as the second argument', function(done) {
       pluckFirstLineFromFile(__dirname + '/../files/file_to_read.txt', function(err, firstLine) {
+        console.log(firstLine)
         expect(firstLine).to.equal('This is a file to read');
         expect(err).to.not.exist;
         done();
@@ -62,6 +63,7 @@ describe('Callback review', function() {
       getStatusCode('https::///thisIsNoUrl.comedy', function(err, statusCode) {
         expect(err.message).to.contain('Invalid URI');
         expect(statusCode).to.not.exist;
+        console.log('got here')
         done();
       });
     });

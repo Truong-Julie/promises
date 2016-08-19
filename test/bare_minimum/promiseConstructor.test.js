@@ -10,6 +10,7 @@ describe('Promise constructor', function() {
 
     it('should return a promise', function() {
       // Must return a Bluebird promise. ES6 promise won't work here
+      console.log(typeof pluckFirstLineFromFileAsync, 'instance');
       expect(pluckFirstLineFromFileAsync(__dirname + '/../files/file_to_read.txt')).to.be.an.instanceOf(Promise);
     });
 

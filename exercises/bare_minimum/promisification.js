@@ -27,7 +27,25 @@ var getGitHubProfile = function(user, callback) {
   });
 };
 
-var getGitHubProfileAsync; // TODO
+var getGitHubProfileAsync = Promise.promisify(getGitHubProfile);
+// var getGitHubProfileAsync = function (user) {
+//   var options = {
+//     url: 'https://api.github.com/users/' + user,
+//     headers: { 'User-Agent': 'request' },
+//     json: true  // will JSON.parse(body) for us
+//   };
+//   return new Promise ( function (resolve, reject) {
+//     request.get(options.url, function(error, data) {
+//       console.log(error);
+//       if (error) {
+//         console.log('here')
+//         reject(JSON.parse(error));
+//       } else {
+//         resolve(JSON.parse(data.body));
+//       }
+//     });
+//   });
+// }; // TODO
 
 
 // (2) Asyncronous token generation
@@ -38,7 +56,7 @@ var generateRandomToken = function(callback) {
   });
 };
 
-var generateRandomTokenAsync; // TODO
+var generateRandomTokenAsync = Promise.promisify(generateRandomToken); // TODO
 
 
 // (3) Asyncronous file manipulation
@@ -56,7 +74,7 @@ var readFileAndMakeItFunny = function(filePath, callback) {
   });
 };
 
-var readFileAndMakeItFunnyAsync; // TODO
+var readFileAndMakeItFunnyAsync = Promise.promisify(readFileAndMakeItFunny); // TODO
 
 // Export these functions so we can test them and reuse them in later exercises
 module.exports = {

@@ -45,6 +45,7 @@ describe('Promisification', function() {
 
       getGitHubProfileAsync('someNonExistingUser')
         .catch(function(err) {
+          console.log('made it here!')
           expect(err.message).to.contain('Failed to get GitHub profile');
           done();
         });
